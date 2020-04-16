@@ -7,18 +7,18 @@ const forecast = (latitude, longitude, callback) => {
   request({url, json: true},(error, { body }) => {
   if(error) {
       callback('Sorry, something went wrong!', undefined) 
-  }else if(body.error) {
+  } else if(body.error) {
       callback('unable to find coordinates', undefined)
-      }else{
-          callback(undefined, 'It is currently ' + body.current.weather_descriptions[0]+ ', ' + body.current.temperature + ' degrees out. There is a ' + body.current.precip +'% chance of rain')
-      }
+      } else {
+    
+          callback(undefined,  'It is currently ' + body.current.temperature +  ' degrees out. The humidity is '  + body.current.humidity + '% . There is ' + body.current.precip + ' % chance of rain.')
+           }
+        
+        }) 
+
+    }
 
 
-  }) 
-
-
-
-}
 
 
 module.exports = forecast
